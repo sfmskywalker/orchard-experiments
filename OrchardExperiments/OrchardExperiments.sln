@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99025B89-42D0-462D-B53B-170605AA58B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardExperiments.Web", "src\OrchardExperiments.Web\OrchardExperiments.Web.csproj", "{3D348C3C-4CD1-4423-9184-519DFC338C77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{F04AB50B-E893-4DC6-92CE-37FD2086E798}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D348C3C-4CD1-4423-9184-519DFC338C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D348C3C-4CD1-4423-9184-519DFC338C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D348C3C-4CD1-4423-9184-519DFC338C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D348C3C-4CD1-4423-9184-519DFC338C77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D348C3C-4CD1-4423-9184-519DFC338C77} = {99025B89-42D0-462D-B53B-170605AA58B5}
+	EndGlobalSection
+EndGlobal
