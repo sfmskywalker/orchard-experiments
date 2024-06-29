@@ -10,5 +10,13 @@
     <ItemGroup>
         <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="2.0.0-preview-18248"/>
     </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Services\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\modules\OrchardExperiments.Webhooks\OrchardExperiments.Webhooks.csproj" />
+    </ItemGroup>
 
 </Project>

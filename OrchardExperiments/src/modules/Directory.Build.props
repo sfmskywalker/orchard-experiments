@@ -1,0 +1,39 @@
+<Project>
+    <PropertyGroup>
+        <Authors>sfmskywalker</Authors>
+        <Copyright>2024</Copyright>
+
+        <PackageProjectUrl>https://github.com/sfmskywalker/orchard-experiments</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/sfmskywalker/orchard-experiments</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+<!--        <PackageIcon>icon.png</PackageIcon>-->
+
+<!--        &lt;!&ndash; For NuGet browsers that currently don't support <PackageIcon> yet &ndash;&gt;-->
+<!--        <PackageIconUrl>https://v3.elsaworkflows.io/nuget-icon.png</PackageIconUrl>-->
+
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <AnalysisModeDocumentation>Default</AnalysisModeDocumentation>
+        <AnalysisLevelDocumentation>latest</AnalysisLevelDocumentation>
+
+        <!-- https://github.com/dotnet/sourcelink -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EnableTrimAnalyzer>false</EnableTrimAnalyzer>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);CS0162;CS1591</NoWarn>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <OrchardVersion>2.0.0-preview-18249</OrchardVersion>
+    </PropertyGroup>
+
+</Project>
