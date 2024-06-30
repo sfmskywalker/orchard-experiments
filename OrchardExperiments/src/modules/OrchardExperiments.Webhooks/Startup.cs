@@ -16,7 +16,7 @@ public class Startup : StartupBase
         
         services
             .AddWebhooksCore()
-            .AddSingleton<IWebhookEndpointsSource, ElsaServerWebhookEndpointsSource>()
+            .AddSingleton<IWebhookSinkProvider, ElsaServerWebhookSinkProvider>()
             .AddScoped<IContentHandler, ContentEventHandlers>()
             .AddScoped<IModularTenantEvents, StartWebhooksProcessor>()
             ;
