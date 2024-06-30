@@ -10,7 +10,15 @@ public class ContentEventHandlers(IWebhookEventBroadcaster webhookEventBroadcast
     {
         var publishedContentItem = context.PublishingItem;
         var previousContentItem = context.PreviousItem;
-        var payload = new ContentItemPublished(publishedContentItem.ContentItemId, previousContentItem?.ContentItemId);
+        
+        var payload = new ContentItemPublished(
+            publishedContentItem.ContentType,
+            publishedContentItem.DisplayText,
+            publishedContentItem.Author,
+            publishedContentItem.Owner,
+            publishedContentItem.ContentItemId,
+            previousContentItem?.ContentItemId);
+        
         await webhookEventBroadcaster.BroadcastAsync(EventTypes.ContentItem.Published, payload);
     }
 }
