@@ -12,7 +12,7 @@ public class Startup : StartupBase
 {
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.Configure<WebhookEventBroadcasterOptions>(options => options.UseBackgroundProcessorBroadcasterStrategy());
+        services.Configure<WebhookBroadcasterOptions>(options => options.UseBackgroundProcessorBroadcasterStrategy());
         
         services
             .AddWebhooksCore()
