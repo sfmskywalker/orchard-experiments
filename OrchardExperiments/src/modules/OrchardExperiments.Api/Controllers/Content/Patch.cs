@@ -15,7 +15,7 @@ namespace OrchardExperiments.Api.Controllers.Content
     {
         [HttpPatch]
         [Authorize]
-        public async Task<IActionResult> HandleAsync(string id, JsonNode patch)
+        public async Task<IActionResult> HandleAsync(string id, Request request)
         {
             var authenticateResult = await authenticationService.AuthenticateAsync(HttpContext, "Api");
             if (authenticateResult.Succeeded) 
@@ -24,11 +24,18 @@ namespace OrchardExperiments.Api.Controllers.Content
             if (!await authorizationService.AuthorizeAsync(User, Permissions.RestApiAccess))
                 return this.ChallengeOrForbid("Api");
 
-            var contentItem = await contentManager.GetAsync(id);
+            var contentItem = await contentManager.GetAsync(id, VersionOptions.DraftRequired);
+            var patch = request.Patch;
             contentItem.Merge(patch, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Replace });
-            await contentManager.UpdateAsync(contentItem);
+            
+            if (request.Publish)
+                await contentManager.PublishAsync(contentItem);
+            else
+                await contentManager.SaveDraftAsync(contentItem);
 
             return new ObjectResult(contentItem);
         }
     }
 }
+
+public record Request(JsonNode Patch, bool Publish);
