@@ -16,6 +16,7 @@
     </ItemGroup>
     
     <ItemGroup>
+      <ProjectReference Include="..\modules\OrchardExperiments.Api\OrchardExperiments.Api.csproj" />
       <ProjectReference Include="..\modules\OrchardExperiments.Webhooks\OrchardExperiments.Webhooks.csproj" />
     </ItemGroup>
 

@@ -23,8 +23,8 @@ public class ElsaServerWebhookSinkProvider : IWebhookSinkProvider
                 EventType = EventTypes.ContentItem.Published,
                 PayloadFilters = 
                 {
-                    new PayloadFilter(nameof(ContentItemPublished.ContentType), "Article"),
-                    new PayloadFilter(nameof(ContentItemPublished.ContentType), "BlogPost")
+                    new PayloadFilter(nameof(ContentItemEventPayload.ContentType), "Article"),
+                    new PayloadFilter(nameof(ContentItemEventPayload.ContentType), "BlogPost")
                 }
             }]
         };

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
+        <PackageReference Include="OrchardCore.ContentManagement.Abstractions" />
+        <PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
+        <PackageReference Include="OrchardCore.Module.Targets"/>
+        <PackageReference Include="OrchardCore.Mvc.Core" />
+    </ItemGroup>
+
+</Project>

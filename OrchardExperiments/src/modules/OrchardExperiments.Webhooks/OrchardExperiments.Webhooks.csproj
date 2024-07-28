@@ -10,10 +10,7 @@
         <PackageReference Include="OrchardCore.Module.Targets"/>
         <PackageReference Include="Polly" />
         <PackageReference Include="Polly.Extensions.Http" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\..\..\..\webhooks-core\main\src\WebhooksCore\WebhooksCore.csproj" />
+        <PackageReference Include="WebhooksCore" />
     </ItemGroup>
 
 </Project>
