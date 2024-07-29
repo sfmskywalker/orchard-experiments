@@ -4,27 +4,33 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
+using OrchardCore.Contents;
 using OrchardExperiments.Api.Extensions;
 
 namespace OrchardExperiments.Api.Controllers.Content
 {
-    [Route("api/content/{id}")]
     [IgnoreAntiforgeryToken, AllowAnonymous]
     [ApiController]
     public class Patch(IAuthenticationService authenticationService, IAuthorizationService authorizationService, IContentManager contentManager) : ControllerBase
     {
-        [HttpPatch]
-        [Authorize]
+        [HttpPatch("api/content/{id}")]
         public async Task<IActionResult> HandleAsync(string id, Request request)
         {
-            var authenticateResult = await authenticationService.AuthenticateAsync(HttpContext, "Api");
+            var authenticateResult = await authenticationService.AuthenticateAsync(HttpContext, Schemes.Api);
             if (authenticateResult.Succeeded) 
                 HttpContext.User = authenticateResult.Principal;
             
-            if (!await authorizationService.AuthorizeAsync(User, Permissions.RestApiAccess))
-                return this.ChallengeOrForbid("Api");
-
             var contentItem = await contentManager.GetAsync(id, VersionOptions.DraftRequired);
+            
+            if (contentItem == null)
+                return NotFound();
+            
+            if (!await authorizationService.AuthorizeAsync(User, Permissions.RestApiAccess, contentItem))
+                return this.ChallengeOrForbid(Schemes.Api);
+            
+            if (!await authorizationService.AuthorizeAsync(User, CommonPermissions.EditContent, contentItem))
+                return this.ChallengeOrForbid(Schemes.Api);
+            
             var patch = request.Patch;
             contentItem.Merge(patch, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Replace });
             
@@ -36,6 +42,6 @@ namespace OrchardExperiments.Api.Controllers.Content
             return new ObjectResult(contentItem);
         }
     }
+    
+    public record Request(JsonNode Patch, bool Publish);
 }
-
-public record Request(JsonNode Patch, bool Publish);
