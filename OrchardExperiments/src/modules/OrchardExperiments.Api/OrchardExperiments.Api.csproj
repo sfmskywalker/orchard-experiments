@@ -9,6 +9,7 @@
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
+        <PackageReference Include="OrchardCore.ContentLocalization" />
         <PackageReference Include="OrchardCore.ContentManagement.Abstractions" />
         <PackageReference Include="OrchardCore.Contents.Core" />
         <PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
