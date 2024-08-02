@@ -13,7 +13,7 @@ namespace OrchardExperiments.Api.Controllers.Content;
 [ApiController]
 public class Patch(IAuthenticationService authenticationService, IAuthorizationService authorizationService, IContentManager contentManager) : ControllerBase
 {
-    [HttpPatch("api/content/{id}")]
+    [HttpPatch("api/content-items/{id}")]
     public async Task<IActionResult> HandleAsync(string id, RequestModel request)
     {
         var authenticateResult = await authenticationService.AuthenticateAsync(HttpContext, Schemes.Api);

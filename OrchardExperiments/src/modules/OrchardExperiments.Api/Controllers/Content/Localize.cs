@@ -19,7 +19,7 @@ public class Localize(
     IAuthorizationService authorizationService)
     : ControllerBase
 {
-    [HttpPost("api/content/{id}/localize")]
+    [HttpPost("api/content-items/{id}/localize")]
     public async Task<IActionResult> HandleAsync(string id, RequestModel request)
     {
         var authenticateResult = await authenticationService.AuthenticateAsync(HttpContext, Schemes.Api);

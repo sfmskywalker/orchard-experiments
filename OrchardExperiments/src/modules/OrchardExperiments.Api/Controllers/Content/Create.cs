@@ -13,7 +13,7 @@ namespace OrchardExperiments.Api.Controllers.Content;
 [ApiController]
 public class Create(IAuthenticationService authenticationService, IAuthorizationService authorizationService, IContentManager contentManager) : ControllerBase
 {
-    [HttpPost("api/content")]
+    [HttpPost("api/content-items")]
     public async Task<IActionResult> HandleAsync(RequestModel request)
     {
         var authenticateResult = await authenticationService.AuthenticateAsync(HttpContext, Schemes.Api);
