@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Nodes;
+﻿using System.Security.Claims;
+using System.Text.Json.Nodes;
 using System.Text.Json.Settings;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -23,13 +24,16 @@ public class Create(IAuthenticationService authenticationService, IAuthorization
         if (!await authorizationService.AuthorizeAsync(User, Permissions.RestApiAccess))
             return this.ChallengeOrForbid(Schemes.Api);
 
-        var contentItem = await contentManager.NewAsync(request.ContentType);
+        var contentItem = await CreateContentItemOwnedByCurrentUserAsync(request.ContentType);
 
         if (!await authorizationService.AuthorizeAsync(User, CommonPermissions.PublishContent, contentItem))
             return this.ChallengeOrForbid(Schemes.Api);
 
         var properties = request.Properties;
         contentItem.Merge(properties, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Replace });
+        
+        await contentManager.UpdateAsync(contentItem);
+        await contentManager.CreateAsync(contentItem, VersionOptions.Draft);
 
         if (request.Publish)
             await contentManager.PublishAsync(contentItem);
@@ -37,6 +41,21 @@ public class Create(IAuthenticationService authenticationService, IAuthorization
             await contentManager.SaveDraftAsync(contentItem);
 
         return new ObjectResult(contentItem);
+    }
+    
+    private async Task<ContentItem> CreateContentItemOwnedByCurrentUserAsync(string contentType)
+    {
+        var contentItem = await contentManager.NewAsync(contentType);
+        contentItem.Owner = CurrentUserId();
+
+        return contentItem;
+    }
+
+    
+
+    private string CurrentUserId()
+    {
+        return User.FindFirstValue(ClaimTypes.NameIdentifier)!;
     }
 
     public record RequestModel(string ContentType, JsonNode Properties, bool Publish);
