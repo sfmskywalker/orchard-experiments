@@ -10,6 +10,7 @@
     <PackageVersion Include="OrchardCore.ContentManagement.Abstractions" Version="$(OrchardVersion)" />
     <PackageVersion Include="OrchardCore.Contents.Core" Version="1.8.3" />
     <PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="1.8.3" />
+    <PackageVersion Include="OrchardCore.Media" Version="1.8.3" />
     <PackageVersion Include="OrchardCore.Module.Targets" Version="$(OrchardVersion)" />
     <PackageVersion Include="OrchardCore.Mvc.Core" Version="1.8.3" />
     <PackageVersion Include="Polly" Version="8.4.0" />

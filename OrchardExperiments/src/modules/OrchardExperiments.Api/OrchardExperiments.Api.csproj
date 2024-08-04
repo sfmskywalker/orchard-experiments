@@ -13,6 +13,7 @@
         <PackageReference Include="OrchardCore.ContentManagement.Abstractions" />
         <PackageReference Include="OrchardCore.Contents.Core" />
         <PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
+        <PackageReference Include="OrchardCore.Media" />
         <PackageReference Include="OrchardCore.Module.Targets"/>
         <PackageReference Include="OrchardCore.Mvc.Core" />
     </ItemGroup>
