@@ -16,6 +16,8 @@
         <PackageReference Include="OrchardCore.Media" />
         <PackageReference Include="OrchardCore.Module.Targets"/>
         <PackageReference Include="OrchardCore.Mvc.Core" />
+        <PackageReference Include="OrchardCore.Taxonomies" />
+        <PackageReference Include="OrchardCore.Title" />
     </ItemGroup>
 
 </Project>
