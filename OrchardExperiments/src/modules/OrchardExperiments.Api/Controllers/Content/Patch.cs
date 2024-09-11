@@ -33,6 +33,7 @@ public class Patch(IAuthenticationService authenticationService, IAuthorizationS
             
         var patch = request.Patch;
         contentItem.Merge(patch, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Replace });
+        await contentManager.UpdateAsync(contentItem);
             
         if (request.Publish)
             await contentManager.PublishAsync(contentItem);
