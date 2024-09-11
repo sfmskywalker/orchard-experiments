@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
 using OrchardCore.Contents;
-using OrchardExperiments.Api.Extensions;
 
 namespace OrchardExperiments.Api.Controllers.Content;
 

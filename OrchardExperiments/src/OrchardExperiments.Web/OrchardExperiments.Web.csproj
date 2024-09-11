@@ -8,11 +8,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="2.0.0-preview-18248"/>
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Services\" />
+        <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="2.0.0"/>
     </ItemGroup>
     
     <ItemGroup>

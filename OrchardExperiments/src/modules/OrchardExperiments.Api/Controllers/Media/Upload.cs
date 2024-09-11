@@ -8,7 +8,6 @@ using Microsoft.Extensions.Options;
 using OrchardCore.FileStorage;
 using OrchardCore.Media;
 using OrchardCore.Media.Services;
-using OrchardExperiments.Api.Extensions;
 
 namespace OrchardExperiments.Api.Controllers.Media;
 

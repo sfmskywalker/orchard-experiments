@@ -9,7 +9,6 @@ using OrchardCore.ContentManagement.Metadata.Models;
 using OrchardCore.Modules;
 using OrchardCore.Taxonomies.Models;
 using OrchardCore.Title.Models;
-using OrchardExperiments.Api.Extensions;
 
 namespace OrchardExperiments.Api.Controllers.Tags;
 

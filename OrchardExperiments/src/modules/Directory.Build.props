@@ -33,7 +33,7 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <OrchardVersion>2.0.0-preview-18249</OrchardVersion>
+        <OrchardVersion>2.0.0</OrchardVersion>
     </PropertyGroup>
 
 </Project>

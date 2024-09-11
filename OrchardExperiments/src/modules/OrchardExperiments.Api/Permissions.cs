@@ -21,7 +21,7 @@ public sealed class Permissions : IPermissionProvider
 
     public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
     [
-        new PermissionStereotype
+        new()
         {
             Name = OrchardCoreConstants.Roles.Authenticated,
             Permissions =
